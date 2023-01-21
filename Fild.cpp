@@ -120,6 +120,16 @@ void fild::Fild::WriteFild(std::string fileName)
 	}
 	std::ofstream out;
 	out.open(fileName, 'w');
+	try
+	{
+		if (!out.is_open())
+			throw (std::string)"Unexpected error\n";
+	}
+	catch(std::string err)
+	{
+		std::cout << err;
+		return;
+	}
 	out << "#Life 1.06" << std::endl << "#R B";
 	for (int i = 0; i < this->_rules.size(); i++)
 	{
