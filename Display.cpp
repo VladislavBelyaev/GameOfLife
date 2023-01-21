@@ -1,6 +1,6 @@
 #include "Display.h"
 
-void Online::display(std::vector<std::string>comand, Fild& fild)
+void display::Online::display(std::vector<std::string>comand, fild::Fild& fild)
 {
 	fild.ShowMt();
 	while (true)
@@ -34,7 +34,7 @@ void Online::display(std::vector<std::string>comand, Fild& fild)
 	}
 }
 
-void Offline::display(std::vector<std::string>cmd, Fild& fild)
+void display::Offline::display(std::vector<std::string>cmd, fild::Fild& fild)
 {
 	for (int i = 0; i < cmd.size(); i++)
 	{

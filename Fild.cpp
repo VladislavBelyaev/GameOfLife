@@ -1,7 +1,7 @@
 #include "Fild.h"
 
 
-Fild::Fild()
+fild::Fild::Fild()
 {
 	_sizeX = 0;
 	_sizeY = 0;
@@ -9,12 +9,12 @@ Fild::Fild()
 				golConstants::Write::Errase, golConstants::Write::Errase, golConstants::Write::Errase, golConstants::Write::Errase };
 }
 
-std::vector<std::vector<bool>> Fild::ForTest()
+std::vector<std::vector<bool>> fild::Fild::ForTest()
 {
 	return _mt;
 }
 
-const size_t Fild::sizeOfAxis(golConstants::Axis axis)
+const size_t fild::Fild::sizeOfAxis(golConstants::Axis axis)
 {
 	if (axis == golConstants::Axis::Ox)
 	{
@@ -26,7 +26,7 @@ const size_t Fild::sizeOfAxis(golConstants::Axis axis)
 	}
 }
 
-void Fild::MakeMt()
+void fild::Fild::MakeMt()
 {
 	_mt = std::vector<std::vector<bool>>(_sizeX, std::vector<bool>(_sizeY));
 	for (int i = 0; i < _sizeX; i++)
@@ -39,7 +39,7 @@ void Fild::MakeMt()
 
 }
 
-const size_t Fild::Before(size_t pos, golConstants::Axis axis)
+const size_t fild::Fild::Before(size_t pos, golConstants::Axis axis)
 {
 	if ((int)pos - golConstants::step < 0)
 	{
@@ -51,12 +51,12 @@ const size_t Fild::Before(size_t pos, golConstants::Axis axis)
 	}
 }
 
-const size_t Fild::Here(size_t pos, golConstants::Axis axis)
+const size_t fild::Fild::Here(size_t pos, golConstants::Axis axis)
 {
 	return pos;
 }
 
-const size_t Fild::After(size_t pos, golConstants::Axis axis)
+const size_t fild::Fild::After(size_t pos, golConstants::Axis axis)
 {
 	if (pos + golConstants::step >= sizeOfAxis(axis))
 	{
@@ -68,12 +68,12 @@ const size_t Fild::After(size_t pos, golConstants::Axis axis)
 	}
 }
 
-void Fild::WriteCell(size_t x, size_t y)
+void fild::Fild::WriteCell(size_t x, size_t y)
 {
 	_mt[x][y] = 1;
 }
 
-void Fild::ShowMt()
+void fild::Fild::ShowMt()
 {
 	for (int i = 0; i < _sizeX; i++)
 	{
@@ -85,12 +85,12 @@ void Fild::ShowMt()
 	}
 }
 
-bool Fild::ReadCell(size_t x, size_t y)
+bool fild::Fild::ReadCell(size_t x, size_t y)
 {
 	return this->_mt[x][y];
 }
 
-void Fild::Tick()
+void fild::Fild::Tick()
 {
 	std::vector<std::vector<bool>> cpy = this->_mt;
 	golConstants::Write flag = golConstants::Write::DoNotChange;
@@ -112,7 +112,7 @@ void Fild::Tick()
 	_mt = cpy;
 }
 
-void Fild::WriteFild(std::string fileName)
+void fild::Fild::WriteFild(std::string fileName)
 {
 	if (fileName.find(golConstants::extensionOne) > fileName.size() || fileName.find(golConstants::extensionTwo) > fileName.size())
 	{
@@ -150,7 +150,7 @@ void Fild::WriteFild(std::string fileName)
 	out.close();
 }
 
-void Fild::Tick(size_t value)
+void fild::Fild::Tick(size_t value)
 {
 	for (size_t i = 0; i < value; i++)
 	{
@@ -158,7 +158,7 @@ void Fild::Tick(size_t value)
 	}
 }
 
-golConstants::Write Fild::CheckCell(size_t x, size_t y)
+golConstants::Write fild::Fild::CheckCell(size_t x, size_t y)
 {
 	size_t cells = 0;
 	std::vector<const size_t(Fild::*)(size_t, golConstants::Axis)> positionFounder = { &Fild::Before, &Fild::Here, &Fild::After };
@@ -175,7 +175,7 @@ golConstants::Write Fild::CheckCell(size_t x, size_t y)
 	return _rules[cells];
 }
 
-void Fild::ReadFild(std::string world)
+void fild::Fild::ReadFild(std::string world)
 {
 	std::ifstream file(world);
 	try

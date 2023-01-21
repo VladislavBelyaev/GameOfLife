@@ -2,7 +2,7 @@
 #include "../GOL.h"
 
 TEST(TestGOL, TestTick) {
-	Fild first, second;
+	fild::Fild first, second;
 	first.ReadFild("Examples/Pentapole.lif");
 	first.Tick(2);
 	second.ReadFild("Examples/Pentapole.lif");
@@ -10,7 +10,7 @@ TEST(TestGOL, TestTick) {
 }
 
 TEST(TestGOL, TestWrite) {
-	Fild first, second, third;
+	fild::Fild first, second, third;
 	first.ReadFild("Examples/Glider.lif");
 	second.ReadFild("Examples/Glider.lif");
 	first.Tick(5);
@@ -22,7 +22,7 @@ TEST(TestGOL, TestWrite) {
 }
 
 TEST(TestGOL, TestCycle) {
-	Fild first, second;
+	fild::Fild first, second;
 	first.ReadFild("Examples/Brain.lif");
 	second.ReadFild("Examples/Brain.lif");
 	first.Tick(75);

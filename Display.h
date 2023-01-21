@@ -3,20 +3,23 @@
 #include "Fild.h"
 #endif
 
-class Display
+namespace display
 {
-public:
-	virtual void display(std::vector<std::string>, Fild& fild) = 0;
-};
+	class Display
+	{
+	public:
+		virtual void display(std::vector<std::string>, fild::Fild& fild) = 0;
+	};
+	
+	class Online : public Display
+	{
+	public:
+		virtual void display(std::vector<std::string>, fild::Fild& fild) override;
+	};
 
-class Online : public Display
-{
-public:
-	virtual void display(std::vector<std::string>, Fild& fild) override;
-};
-
-class Offline : public Display
-{
-public:
-	virtual void display(std::vector<std::string>, Fild& fild) override;
-};
+	class Offline : public Display
+	{
+	public:
+		virtual void display(std::vector<std::string>, fild::Fild& fild) override;
+	};
+}

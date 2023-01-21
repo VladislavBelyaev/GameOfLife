@@ -6,12 +6,12 @@ class GameOfLive
 {
 private:
 	std::vector<std::string>_comand;
-	Fild*_fild;
-	BuildFild* _builder;
-	Display* _display;
+	fild::Fild*_fild;
+	builder::BuildFild* _builder;
+	display::Display* _display;
 	golConstants::Option toHandle(std::string);
 public: 
-	GameOfLive(std::vector<std::string>, Fild*);
+	GameOfLive(std::vector<std::string>, fild::Fild*);
 	~GameOfLive();
 	void setStrategy();
 	void Work();

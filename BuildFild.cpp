@@ -1,13 +1,13 @@
 #include "BuildFild.h"
 
-void CreateFild::buildFild(std::string world, Fild& mt)
+void builder::CreateFild::buildFild(std::string world, fild::Fild& mt)
 {
 	srand(time(NULL));
 	world = golConstants::fileNames[rand() % 5];
 	mt.ReadFild(world);
 }
 
-void ImportFild::buildFild(std::string world, Fild& mt)
+void builder::ImportFild::buildFild(std::string world, fild::Fild& mt)
 {
 	mt.ReadFild(world);
 }

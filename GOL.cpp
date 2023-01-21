@@ -14,7 +14,7 @@ golConstants::Option GameOfLive::toHandle(std::string cmd)
 	return golConstants::Option::Nothing;
 }
 
-GameOfLive::GameOfLive(std::vector<std::string> cmd, Fild*f)
+GameOfLive::GameOfLive(std::vector<std::string> cmd, fild::Fild*f)
 {
 	_comand = cmd;
 	_fild = f;
@@ -33,21 +33,21 @@ void GameOfLive::setStrategy()
 		switch (toHandle(_comand[i]))
 		{
 		case golConstants::Option::ChangeToOffline:{
-			_display = new Offline;
+			_display = new display::Offline;
 			i++; }						//пропуск следующего параметра
 		case golConstants::Option::ChangeToImport: {
-			_builder = new ImportFild; }
+			_builder = new builder::ImportFild; }
 		default:
 			continue;
 		}
 	}
 	if (_display == nullptr)
 	{
-		_display = new Online;
+		_display = new display::Online;
 	}
 	if (_builder == nullptr)
 	{
-		_builder = new CreateFild;
+		_builder = new builder::CreateFild;
 	}
 }
 

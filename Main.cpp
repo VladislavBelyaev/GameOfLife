@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
 	{
 		cmd[i] = argv[i];
 	}
-	Fild f;
+	fild::Fild f;
 	GameOfLive g(cmd, &f);
 	g.setStrategy();
 	g.Work();

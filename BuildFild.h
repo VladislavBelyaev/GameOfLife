@@ -3,20 +3,23 @@
 #include "Fild.h"
 #endif
 
-class BuildFild
+namespace builder
 {
-public:
-	virtual void buildFild(std::string, Fild&) = 0;
-};
+	class BuildFild
+	{
+	public:
+		virtual void buildFild(std::string, fild::Fild&) = 0;
+	};
 
-class ImportFild : public BuildFild
-{
-public:
-	virtual void buildFild(std::string, Fild&) override;
-};
+	class ImportFild : public BuildFild
+	{
+	public:
+		virtual void buildFild(std::string, fild::Fild&) override;
+	};
 
-class CreateFild : public BuildFild
-{
-public:
-	virtual void buildFild(std::string, Fild&) override;
-};
+	class CreateFild : public BuildFild
+	{
+	public:
+		virtual void buildFild(std::string, fild::Fild&) override;
+	};
+}
